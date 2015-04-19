@@ -7,7 +7,7 @@ var staticRoutes = require('./staticRoutes');
 var internals = {};
 
 var server = new Hapi.Server();
-server.connection({ host: config.http.listen, port: config.http.port });
+server.connection({ host: process.env.IP, port: process.env.PORT });
 
 // set clientconfig cookie
 internals.configStateConfig = {
@@ -43,6 +43,6 @@ server.register([
     // If everything loaded correctly, start the server:
     server.start(function (err) {
         if (err) throw err;
-        console.log('Race Manager Assistant is running at: http://' + config.http.listen + ':' + config.http.port);
+        console.log('Race Manager Assistant is running at: http://' + process.env.IP + ':' + process.env.PORT);
     });
 });

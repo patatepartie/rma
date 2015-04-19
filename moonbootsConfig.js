@@ -4,7 +4,7 @@ var templatizer = require('templatizer');
 
 // for reuse
 var appDir = __dirname + '/client';
-var cssDir = __dirname + '/public/css';
+var cssDir = __dirname + '/stylesheets';
 
 
 module.exports = {
@@ -35,6 +35,9 @@ module.exports = {
             cssDir + '/bootstrap.css',
             cssDir + '/app.css'
         ],
+        browserify: {
+            debug: config.isDev
+        },
         beforeBuildJS: function () {
             // This re-builds our template files from jade each time the app's main
             // js file is requested. Which means you can seamlessly change jade and

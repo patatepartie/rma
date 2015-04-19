@@ -1,4 +1,4 @@
-/*global me, app*/
+var app = require('ampersand-app');
 var Router = require('ampersand-router');
 var HomePage = require('./pages/home');
 var CollectionDemo = require('./pages/collection-demo');
@@ -21,36 +21,36 @@ module.exports = Router.extend({
 
     // ------- ROUTE HANDLERS ---------
     home: function () {
-        this.trigger('page', new HomePage({
-            model: me
+        app.trigger('page', new HomePage({
+            model: app.me
         }));
     },
 
     collectionDemo: function () {
-        this.trigger('page', new CollectionDemo({
-            model: me,
+        app.trigger('page', new CollectionDemo({
+            model: app.me,
             collection: app.people
         }));
     },
 
     info: function () {
-        this.trigger('page', new InfoPage({
-            model: me
+        app.trigger('page', new InfoPage({
+            model: app.me
         }));
     },
 
     personAdd: function () {
-        this.trigger('page', new PersonAddPage());
+        app.trigger('page', new PersonAddPage());
     },
 
     personEdit: function (id) {
-        this.trigger('page', new PersonEditPage({
+        app.trigger('page', new PersonEditPage({
             id: id
         }));
     },
 
     personView: function (id) {
-        this.trigger('page', new PersonViewPage({
+        app.trigger('page', new PersonViewPage({
             id: id
         }));
     },

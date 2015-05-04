@@ -1,11 +1,11 @@
 var app = require('ampersand-app');
 var _ = require('underscore');
-var config = require('clientconfig');
 var Router = require('./router');
 var MainView = require('./views/main');
 var Me = require('./models/me');
 var People = require('./models/persons');
 var domReady = require('domready');
+var Clock = require('./models/clock');
 
 // attach our app to `window` so we can
 // easily access it from the console.
@@ -14,6 +14,7 @@ window.app = app;
 // Extends our main app singleton
 app.extend({
     me: new Me(),
+    clock: new Clock(),
     people: new People(),
     router: new Router(),
     // This is where it all starts

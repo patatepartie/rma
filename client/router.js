@@ -6,7 +6,7 @@ var InfoPage = require('./pages/info');
 var PersonAddPage = require('./pages/person-add');
 var PersonEditPage = require('./pages/person-edit');
 var PersonViewPage = require('./pages/person-view');
-
+var StintPage = require('./pages/stint');
 
 module.exports = Router.extend({
     routes: {
@@ -16,6 +16,7 @@ module.exports = Router.extend({
         'person/add': 'personAdd',
         'person/:id': 'personView',
         'person/:id/edit': 'personEdit',
+        'race/stint/:startTime/:pitStopTime': 'currentStint',
         '(*path)': 'catchAll'
     },
 
@@ -55,6 +56,14 @@ module.exports = Router.extend({
         }));
     },
 
+    currentStint: function(startTime, pitStopTime) {
+        app.trigger('page', new StintPage({
+            startTime: startTime,
+            pitStopTime: pitStopTime,
+            clock: app.clock
+        }));   
+    },
+    
     catchAll: function () {
         this.redirectTo('');
     }

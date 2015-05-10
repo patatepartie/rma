@@ -1,7 +1,7 @@
 body
   nav.navbar.navbar-default
-    div.container-fluid
-      div.navbar-header
+    section.container-fluid
+      header.navbar-header
         a.navbar-brand(href='/') Race Manager Assistant
       ul.nav.navbar-nav
         li
@@ -14,7 +14,7 @@ body
           a(href="/race/stint") current stint
         li
           a(href="/simulation/stint") simulate a stint
-  .container
+  article.container
     main(data-hook="page-container")
     footer.footer-main
       nav.nav-footer.cf
@@ -31,9 +31,9 @@ body
           a.nav-item.external(href="http://ampersandjs.com/security") Security
           a.nav-item.external(href="https://github.com/ampersandjs") Github
           a.nav-item.external(href="https://twitter.com/ampersandjs") Twitter
-      p Sponsored by 
-        a(href="https://andyet.com") &amp;yet 
+      p Sponsored by
+        a(href="https://andyet.com") &amp;yet
         br
-        | with the help of our 
+        | with the help of our
         a(href="http://ampersandjs.com/contribute") contributors
       a.logo.logo-ampersand-pink(href="http://ampersandjs.com") &amp;

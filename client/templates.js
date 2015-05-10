@@ -17,7 +17,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/" class="navbar-brand">Race Manager Assistant</a></div><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/collections">collection demo</a></li><li><a href="/info">more info</a></li><li><a href="/race/stint">current stint</a></li><li><a href="/simulation/stint">simulate a stint</a></li></ul></div></nav><div class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="http://ampersandjs.com/learn" class="nav-item external">Learn</a><a href="http://ampersandjs.com/docs" class="nav-item external">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Modules</a></div><div><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="http://ampersandjs.com/contribute" class="nav-item external">Contribute</a></div><div><a href="http://ampersandjs.com/security" class="nav-item external">Security</a><a href="https://github.com/ampersandjs" class="nav-item external">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item external">Twitter</a></div></nav><p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br/>with the help of our <a href="http://ampersandjs.com/contribute">contributors</a></p><a href="http://ampersandjs.com" class="logo logo-ampersand-pink">&amp;</a></footer></div></body>';
+        return '<body><nav class="navbar navbar-default"><section class="container-fluid"><header class="navbar-header"><a href="/" class="navbar-brand">Race Manager Assistant</a></header><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/collections">collection demo</a></li><li><a href="/info">more info</a></li><li><a href="/race/stint">current stint</a></li><li><a href="/simulation/stint">simulate a stint</a></li></ul></section></nav><article class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="http://ampersandjs.com/learn" class="nav-item external">Learn</a><a href="http://ampersandjs.com/docs" class="nav-item external">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Modules</a></div><div><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="http://ampersandjs.com/contribute" class="nav-item external">Contribute</a></div><div><a href="http://ampersandjs.com/security" class="nav-item external">Security</a><a href="https://github.com/ampersandjs" class="nav-item external">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item external">Twitter</a></div></nav><p>Sponsored by<a href="https://andyet.com">&amp;yet</a><br/>with the help of our<a href="http://ampersandjs.com/contribute">contributors</a></p><a href="http://ampersandjs.com" class="logo logo-ampersand-pink">&amp;</a></footer></article></body>';
     };
 
     // head.jade compiled template
@@ -37,7 +37,7 @@
 
     // includes/timeControl.jade compiled template
     templatizer["includes"]["timeControl"] = function tmpl_includes_timeControl() {
-        return '<div data-hook="start-time"></div><div data-hook="end-time"></div>';
+        return '<aside data-hook="time-control"><div data-hook="start-time"></div><div data-hook="current-time"></div><div data-hook="end-time"></div></aside>';
     };
 
     // pages/collectionDemo.jade compiled template
@@ -72,7 +72,7 @@
 
     // pages/stint.jade compiled template
     templatizer["pages"]["stint"] = function tmpl_pages_stint() {
-        return '<section class="page stint"><section data-hook="time-control"></section></section>';
+        return '<section class="page stint"></section>';
     };
 
     return templatizer;

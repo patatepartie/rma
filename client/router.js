@@ -7,6 +7,14 @@ var PersonAddPage = require('./pages/person-add');
 var PersonEditPage = require('./pages/person-edit');
 var PersonViewPage = require('./pages/person-view');
 var StintPage = require('./pages/stint');
+var moment = require('moment');
+var Clock = require('./models/clock')
+
+function parseSimpleTime(simpleTimeExpression) {
+    var date = simpleTimeExpression.substr(0, 2),
+        time = simpleTimeExpression.substr(2);
+    return moment(time, "HHmmss").toDate();
+}
 
 module.exports = Router.extend({
     routes: {
@@ -17,6 +25,7 @@ module.exports = Router.extend({
         'person/:id': 'personView',
         'person/:id/edit': 'personEdit',
         'race/stint/:startTime/:pitStopTime': 'currentStint',
+        'simulation/stint': 'simulateStint',
         '(*path)': 'catchAll'
     },
 
@@ -61,9 +70,21 @@ module.exports = Router.extend({
             startTime: startTime,
             pitStopTime: pitStopTime,
             clock: app.clock
-        }));   
+        }));
     },
-    
+
+    simulateStint: function() {
+        var startTime = parseSimpleTime('TD104000');
+
+        app.trigger('page', new StintPage({
+            startTime: startTime,
+            pitStopTime: parseSimpleTime('TD123000'),
+            clock: new Clock({
+                timestamp: startTime.getTime()
+            })
+        }));
+    },
+
     catchAll: function () {
         this.redirectTo('');
     }

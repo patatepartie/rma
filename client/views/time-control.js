@@ -11,6 +11,13 @@ module.exports = View.extend({
                 return moment(this.model.startTime).format('HH:mm:ss');
             }
         },
+        formattedCurrentTime: {
+            deps: ['model.currentTime'],
+            cache: false,
+            fn: function() {
+                return moment(this.model.currentTime).format('HH:mm:ss');
+            }
+        },
         formattedEndTime: {
             deps: ['model.endTime'],
             fn: function() {
@@ -19,10 +26,13 @@ module.exports = View.extend({
         }
     },
     bindings: {
-        'model.startTime': {
+        formattedStartTime: {
             hook: 'start-time'
         },
-        'model.endTime': {
+        formattedCurrentTime: {
+            hook: 'current-time'
+        },
+        formattedEndTime: {
             hook: 'end-time'
         }
     }

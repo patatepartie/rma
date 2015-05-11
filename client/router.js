@@ -78,9 +78,10 @@ module.exports = Router.extend({
 
         app.trigger('page', new StintPage({
             startTime: startTime,
-            pitStopTime: parseSimpleTime('TD123000'),
+            pitStopTime: parseSimpleTime('TD110000'),
             clock: new Clock({
-                timestamp: startTime.getTime()
+                timestamp: startTime.getTime(),
+                started: false
             })
         }));
     },

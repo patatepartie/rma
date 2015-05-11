@@ -1,6 +1,7 @@
 var View = require('ampersand-view');
 var templates = require('../templates');
 var moment = require('moment');
+var app = require('ampersand-app');
 
 module.exports = View.extend({
     template: templates.includes.timeControl,
@@ -25,6 +26,7 @@ module.exports = View.extend({
             }
         }
     },
+
     bindings: {
         formattedStartTime: {
             hook: 'start-time'
@@ -34,6 +36,36 @@ module.exports = View.extend({
         },
         formattedEndTime: {
             hook: 'end-time'
+        },
+        'model.startTime': {
+            type: 'attribute',
+            name: 'min',
+            hook: 'seek-bar'
+        },
+        'model.currentTime': {
+            type: 'value',
+            hook: 'seek-bar'
+        },
+        'model.endTime': {
+            type: 'attribute',
+            name: 'max',
+            hook: 'seek-bar'
         }
+    },
+
+    events: {
+        'input [data-hook=seek-bar]': 'seekTime',
+        'change [data-hook=seek-bar]': 'releaseFocus'
+    },
+
+    seekTime: function() {
+        var newTime = parseInt(this.queryByHook('seek-bar').value, 10);
+        app.trigger("time:changed", newTime)
+    },
+
+    releaseFocus: function() {
+        // Otherwise the seek bar stop being updated by changes of the clock,
+        // until the user clicks somewhere outside the seek bar
+        this.queryByHook('seek-bar').blur();
     }
 });

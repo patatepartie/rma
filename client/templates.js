@@ -37,7 +37,7 @@
 
     // includes/timeControl.jade compiled template
     templatizer["includes"]["timeControl"] = function tmpl_includes_timeControl() {
-        return '<aside data-hook="time-control"><div data-hook="start-time"></div><div data-hook="current-time"></div><div data-hook="end-time"></div></aside>';
+        return '<aside data-hook="time-control"><section data-hook="times" class="row"><div data-hook="start-time" class="col-xs-offset-1 col-xs-2 text-left"></div><div data-hook="current-time" class="col-xs-offset-2 col-xs-2 text-center"></div><div data-hook="end-time" class="col-xs-offset-2 col-xs-2 text-right"></div></section><section data-hook="progress" class="row"><div class="form-group col-xs-offset-1 col-xs-10"><input type="range" data-hook="seek-bar"/></div></section><section data-hook="controls" class="row"></section></aside>';
     };
 
     // pages/collectionDemo.jade compiled template
@@ -72,7 +72,7 @@
 
     // pages/stint.jade compiled template
     templatizer["pages"]["stint"] = function tmpl_pages_stint() {
-        return '<section class="page stint"></section>';
+        return '<section class="page stint"><section data-hook="simulation"></section></section>';
     };
 
     return templatizer;

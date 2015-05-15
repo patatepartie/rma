@@ -6,4 +6,17 @@ aside(data-hook="time-control")
   section(data-hook="progress").row
     div(class="form-group col-xs-offset-1 col-xs-10")
       input(type="range", data-hook="seek-bar")
-  section(data-hook="controls").row
+  section(data-hook="controls").form-inline
+    div.btn-toolbar
+    div(class="btn-group")
+      button(type="button", class="btn btn-default", data-hook="step-backward")
+        span(class="glyphicon glyphicon-step-backward")
+      button(type="button", class="btn btn-default", data-hook="play-pause")
+        span(class="glyphicon glyphicon-play")
+      button(type="button", class="btn btn-default", data-hook="step-forward")
+        span(class="glyphicon glyphicon-step-forward")
+    div(class="btn-group")
+      button(type="button", class="btn btn-default", data-hook="decrease-speed")
+        span(class="glyphicon glyphicon-minus")
+      button(type="button", class="btn btn-default", data-hook="increase-speed")
+        span(class="glyphicon glyphicon-plus")

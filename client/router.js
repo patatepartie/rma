@@ -81,7 +81,7 @@ module.exports = Router.extend({
             pitStopTime: parseSimpleTime('TD110000'),
             clock: new Clock({
                 timestamp: startTime.getTime(),
-                started: false
+                started: true
             })
         }));
     },

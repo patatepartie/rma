@@ -1,9 +1,16 @@
-exports.register = function (plugin, options, next) {        
-    // Tell Hapi to handle the public folder as a file directory
-    plugin.route({ 
+exports.register = function (plugin, options, next) {
+    // Tell Hapi to handle the public images folder as a file directory
+    plugin.route({
         method: 'GET',
         path: '/images/{param*}',
         handler: {directory: {path: 'public/images/'}}
+    });
+
+    // Tell Hapi to handle the public font folder as a file directory
+    plugin.route({
+        method: 'GET',
+        path: '/fonts/{param*}',
+        handler: {directory: {path: 'public/fonts/'}}
     });
 
     // We expect those files to be availiable from the root of our web app
